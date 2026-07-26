@@ -8,9 +8,10 @@ export default function Hero() {
     >
       {/* Left - Image */}
       <div className="relative flex items-center justify-center">
-        {/* Background Circle */}
+        {/* Background Glow */}
         <div className="w-72 h-72 md:w-96 md:h-96 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 opacity-20 blur-2xl absolute"></div>
 
+        {/* Profile Image */}
         <div className="w-64 h-64 md:w-80 md:h-80 bg-gray-200 dark:bg-gray-800 rounded-full shadow-2xl flex items-center justify-center overflow-hidden relative">
           <img
             src={profileImg}
@@ -38,32 +39,27 @@ export default function Hero() {
           Designing secure enterprise infrastructure using
           <span className="font-semibold text-blue-500">
             {" "}
-            Fortinet, Cisco, VMware, Windows Server, SD-WAN,{" "}
-          </span>
+            Fortinet, Cisco, VMware, Windows Server, SD-WAN,
+          </span>{" "}
           and enterprise networking technologies.
         </p>
 
         <p className="mt-4 text-gray-500 dark:text-gray-400">
-          Currently working at <strong>HORIBA India</strong> while pursuing an
-          <strong> MCA in Artificial Intelligence & Machine Learning.</strong>
+          Currently working at <strong>HORIBA India Pvt. Ltd.</strong> while
+          pursuing an{" "}
+          <strong>
+            MCA in Artificial Intelligence & Machine Learning
+          </strong>
+          .
         </p>
 
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center md:justify-start">
+        {/* Button */}
+        <div className="mt-8 flex justify-center md:justify-start">
           <a
             href="#projects"
             className="px-8 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold transition duration-300 shadow-lg"
           >
             View Projects
-          </a>
-
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-3 rounded-xl border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white transition duration-300"
-          >
-            Download Resume
           </a>
         </div>
 
