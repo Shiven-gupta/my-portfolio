@@ -1,27 +1,21 @@
-import {
-  SiCisco,
-  SiFortinet,
-  SiVmware,
-  SiWindows,
-  SiPython,
-  SiReact,
-  SiJavascript,
-  SiGit,
-  SiGithub,
-  SiLinux,
-} from "react-icons/si";
+import cisco from "../assets/tech/cisco.svg";
+import fortinet from "../assets/tech/fortinet.svg";
+import vmware from "../assets/tech/vmware.svg";
+import python from "../assets/tech/python.svg";
+import react from "../assets/tech/react.svg";
+import javascript from "../assets/tech/javascript.svg";
+import git from "../assets/tech/git.svg";
+import linux from "../assets/tech/linux.svg";
 
 const techStack = [
-  { name: "Cisco", icon: <SiCisco /> },
-  { name: "Fortinet", icon: <SiFortinet /> },
-  { name: "VMware", icon: <SiVmware /> },
-  { name: "Windows Server", icon: <SiWindows /> },
-  { name: "Python", icon: <SiPython /> },
-  { name: "React", icon: <SiReact /> },
-  { name: "JavaScript", icon: <SiJavascript /> },
-  { name: "Git", icon: <SiGit /> },
-  { name: "GitHub", icon: <SiGithub /> },
-  { name: "Linux", icon: <SiLinux /> },
+  { name: "Cisco", icon: cisco },
+  { name: "Fortinet", icon: fortinet },
+  { name: "VMware", icon: vmware },
+  { name: "Python", icon: python },
+  { name: "React", icon: react },
+  { name: "JavaScript", icon: javascript },
+  { name: "Git", icon: git },
+  { name: "Linux", icon: linux },
 ];
 
 export default function TechStack() {
@@ -30,30 +24,38 @@ export default function TechStack() {
       id="tech"
       className="bg-gray-50 dark:bg-gray-950 py-20 px-6"
     >
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-4">
-          Tech Stack
-        </h2>
+      <div className="max-w-7xl mx-auto">
 
-        <p className="text-center text-gray-500 mb-12">
-          Technologies I use to design, secure and manage enterprise infrastructure.
-        </p>
+        <div className="text-center mb-14">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white">
+            Tech Stack
+          </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+          <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
+            Technologies I use to build, secure, and manage enterprise
+            infrastructure.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-8">
+
           {techStack.map((tech) => (
             <div
               key={tech.name}
-              className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-6 flex flex-col items-center hover:scale-105 transition duration-300"
+              className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 p-8 flex flex-col items-center"
             >
-              <div className="text-5xl text-blue-500 mb-4">
-                {tech.icon}
-              </div>
+              <img
+                src={tech.icon}
+                alt={tech.name}
+                className="w-16 h-16 object-contain mb-5"
+              />
 
-              <p className="font-medium text-center">
+              <h3 className="font-semibold text-lg text-center">
                 {tech.name}
-              </p>
+              </h3>
             </div>
           ))}
+
         </div>
       </div>
     </section>
