@@ -1,68 +1,32 @@
 // src/App.js
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import TechStack from "./components/TechStack";
-import Experience from "./components/Experience";
-import Projects from "./components/Projects";
-import Footer from "./components/Footer";
-import Certifications from "./components/Certification";
-import CustomCursor from "./components/CustomCursor";
-import ChatBot from "./components/ChatBot";
+import { Routes, Route } from "react-router-dom";
+
+import Home from "./pages/Home";
+import Blog from "./pages/Blog";
+import BlogDetails from "./pages/BlogDetails";
+
+// Admin Pages
+import Login from "./admin/Login";
+import Dashboard from "./admin/Dashboard";
+import CreateBlog from "./admin/CreateBlog";
+import EditBlog from "./admin/EditBlog";
 
 export default function App() {
-  useEffect(() => {
-    AOS.init({ duration: 800, once: false });
-    window.addEventListener("scroll", AOS.refresh);
-
-    return () => {
-      window.removeEventListener("scroll", AOS.refresh);
-    };
-  }, []);
-
   return (
-    <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300 font-sans scroll-smooth relative">
-      <CustomCursor />
+    <Routes>
+      {/* Portfolio */}
+      <Route path="/" element={<Home />} />
 
-      <Header />
+      {/* Public Blog */}
+      <Route path="/blogs" element={<Blog />} />
 
-      <main className="pt-20">
-
-        <section id="hero">
-          <Hero />
-        </section>
-
-        <section id="about" className="py-12">
-          <About />
-        </section>
-
-        <section id="tech-stack" className="py-12">
-          <TechStack />
-        </section>
-
-        <section id="experience" className="py-12">
-          <Experience />
-        </section>
-
-        <section id="projects" className="py-12">
-          <Projects />
-        </section>
-
-        <section id="certification" className="py-12">
-          <Certifications />
-        </section>
-
-        <section id="contact" className="py-12">
-          <Footer />
-        </section>
-
-      </main>
-
-      <ChatBot />
-    </div>
+      {/* Admin */}
+      <Route path="/admin" element={<Login />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/admin/create" element={<CreateBlog />} />
+      <Route path="/admin/edit/:id" element={<EditBlog />} />
+      <Route path="/blog/:id" element={<BlogDetails />} />
+    </Routes>
   );
 }
