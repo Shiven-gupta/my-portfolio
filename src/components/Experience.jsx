@@ -1,29 +1,30 @@
 export default function Experience() {
   const experiences = [
     {
-      company: "HORIBA India Pvt. Ltd.",
       role: "Network & Server Infrastructure Engineer",
-      duration: "October 2025 – Present",
+      company: "HORIBA India Pvt. Ltd.",
+      duration: "Oct 2025 – Present",
       responsibilities: [
         "Designed and maintained enterprise network infrastructure.",
-        "Configured and managed FortiGate Firewalls and VPN connectivity.",
-        "Implemented SD-WAN for branch office connectivity.",
-        "Managed VMware ESXi virtualization environment.",
-        "Administered Windows Server and Active Directory.",
-        "Managed Microsoft 365 administration and user management.",
-        "Worked with HPE Storage and enterprise backup solutions.",
-        "Provided infrastructure support for SAP and enterprise applications.",
+        "Configured FortiGate Firewalls, VPNs, and security policies.",
+        "Implemented SD-WAN across branch offices.",
+        "Administered VMware ESXi virtualization environment.",
+        "Managed Windows Server, Active Directory, DNS, and DHCP.",
+        "Administered Microsoft 365, Exchange Online, and Entra ID.",
+        "Managed HPE Storage and enterprise backup solutions.",
+        "Collaborated with global IT teams for SAP infrastructure.",
       ],
     },
     {
+      role: "IT Infrastructure Engineer (Trainee)",
       company: "HORIBA India Pvt. Ltd.",
-      role: "IT Infrastructure Trainee",
-      duration: "July 2025 – September 2025",
+      duration: "Jul 2025 – Sep 2025",
       responsibilities: [
         "Supported enterprise network administration.",
-        "Assisted in server management and troubleshooting.",
+        "Assisted with server deployment and troubleshooting.",
         "Performed user provisioning and access management.",
-        "Prepared infrastructure documentation and standard operating procedures.",
+        "Prepared SOPs and technical documentation.",
+        "Provided hardware and software support.",
       ],
     },
   ];
@@ -33,43 +34,38 @@ export default function Experience() {
       id="experience"
       className="bg-white dark:bg-gray-900 py-20 px-6"
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-5xl mx-auto">
 
-        <div className="text-center mb-14">
+        <div className="text-center mb-16">
           <h2 className="text-4xl font-bold">
             Professional Experience
           </h2>
 
-          <p className="text-gray-500 mt-4">
-            My journey in enterprise infrastructure and networking.
+          <p className="mt-4 text-gray-500">
+            My journey in enterprise networking and infrastructure.
           </p>
         </div>
 
-        <div className="space-y-10">
+        <div className="relative border-l-4 border-blue-500 ml-6">
 
           {experiences.map((exp, index) => (
-            <div
-              key={index}
-              className="bg-gray-100 dark:bg-gray-800 rounded-2xl shadow-lg p-8 hover:shadow-xl transition"
-            >
-              <div className="flex flex-col md:flex-row md:justify-between md:items-center">
+            <div key={index} className="mb-16 ml-8 relative">
 
-                <div>
-                  <h3 className="text-2xl font-bold">
-                    {exp.role}
-                  </h3>
+              <div className="absolute -left-12 top-2 w-6 h-6 bg-blue-500 rounded-full border-4 border-white dark:border-gray-900"></div>
 
-                  <h4 className="text-blue-500 font-semibold mt-1">
-                    {exp.company}
-                  </h4>
-                </div>
+              <span className="text-sm text-gray-500">
+                {exp.duration}
+              </span>
 
-                <span className="text-gray-500 mt-4 md:mt-0">
-                  {exp.duration}
-                </span>
-              </div>
+              <h3 className="text-2xl font-bold mt-2">
+                {exp.role}
+              </h3>
 
-              <ul className="mt-6 space-y-3 list-disc list-inside text-gray-600 dark:text-gray-300">
+              <h4 className="text-blue-500 font-semibold">
+                {exp.company}
+              </h4>
+
+              <ul className="mt-5 space-y-2 text-gray-600 dark:text-gray-300 list-disc list-inside">
                 {exp.responsibilities.map((item, i) => (
                   <li key={i}>{item}</li>
                 ))}
@@ -79,6 +75,7 @@ export default function Experience() {
           ))}
 
         </div>
+
       </div>
     </section>
   );
