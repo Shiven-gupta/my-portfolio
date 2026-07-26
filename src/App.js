@@ -11,6 +11,7 @@ import Login from "./admin/Login";
 import Dashboard from "./admin/Dashboard";
 import CreateBlog from "./admin/CreateBlog";
 import EditBlog from "./admin/EditBlog";
+import ProtectedRoute from "./admin/ProtectedRoute";
 
 export default function App() {
   return (
@@ -20,13 +21,38 @@ export default function App() {
 
       {/* Public Blog */}
       <Route path="/blogs" element={<Blog />} />
-
-      {/* Admin */}
-      <Route path="/admin" element={<Login />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/admin/create" element={<CreateBlog />} />
-      <Route path="/admin/edit/:id" element={<EditBlog />} />
       <Route path="/blog/:id" element={<BlogDetails />} />
+
+      {/* Login */}
+      <Route path="/admin" element={<Login />} />
+
+      {/* Protected Admin Routes */}
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/admin/create"
+        element={
+          <ProtectedRoute>
+            <CreateBlog />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/admin/edit/:id"
+        element={
+          <ProtectedRoute>
+            <EditBlog />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   );
 }
