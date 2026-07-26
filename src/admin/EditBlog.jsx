@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import {
-  doc,
-  getDoc,
-  updateDoc,
-} from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase/firebase";
 
 export default function EditBlog() {
@@ -19,33 +15,33 @@ export default function EditBlog() {
   const [content, setContent] = useState("");
 
   useEffect(() => {
-    loadBlog();
-  }, []);
+    async function loadBlog() {
+      try {
+        const docRef = doc(db, "blogs", id);
+        const docSnap = await getDoc(docRef);
 
-  async function loadBlog() {
-    try {
-      const docRef = doc(db, "blogs", id);
-      const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          const blog = docSnap.data();
 
-      if (docSnap.exists()) {
-        const blog = docSnap.data();
-
-        setTitle(blog.title || "");
-        setCategory(blog.category || "Networking");
-        setSummary(blog.summary || "");
-        setContent(blog.content || "");
-      } else {
-        alert("Blog not found.");
+          setTitle(blog.title || "");
+          setCategory(blog.category || "Networking");
+          setSummary(blog.summary || "");
+          setContent(blog.content || "");
+        } else {
+          alert("Blog not found.");
+          navigate("/dashboard");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Error loading blog.");
         navigate("/dashboard");
+      } finally {
+        setLoading(false);
       }
-
-      setLoading(false);
-    } catch (err) {
-      console.error(err);
-      alert("Error loading blog.");
-      navigate("/dashboard");
     }
-  }
+
+    loadBlog();
+  }, [id, navigate]);
 
   const updateBlog = async (e) => {
     e.preventDefault();
@@ -147,7 +143,6 @@ export default function EditBlog() {
           </div>
 
           <div className="flex gap-4">
-
             <button
               type="submit"
               className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg"
@@ -162,7 +157,6 @@ export default function EditBlog() {
             >
               Cancel
             </button>
-
           </div>
 
         </form>

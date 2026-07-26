@@ -10,44 +10,44 @@ export default function BlogDetails() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    async function loadBlog() {
+      try {
+        const docRef = doc(db, "blogs", id);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          setBlog(docSnap.data());
+        } else {
+          setBlog(null);
+        }
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
     loadBlog();
   }, [id]);
 
-  async function loadBlog() {
-    try {
-      const docRef = doc(db, "blogs", id);
-      const docSnap = await getDoc(docRef);
-
-      if (docSnap.exists()) {
-        setBlog(docSnap.data());
-      }
-
-      setLoading(false);
-    } catch (err) {
-      console.error(err);
-      setLoading(false);
-    }
-  }
-
   if (loading) {
     return (
-      <div className="min-h-screen flex justify-center items-center">
-        Loading...
+      <div className="min-h-screen flex justify-center items-center bg-gray-100 dark:bg-gray-900">
+        <h1 className="text-3xl font-bold">Loading...</h1>
       </div>
     );
   }
 
   if (!blog) {
     return (
-      <div className="min-h-screen flex justify-center items-center">
-        Blog not found.
+      <div className="min-h-screen flex justify-center items-center bg-gray-100 dark:bg-gray-900">
+        <h1 className="text-3xl font-bold">Blog not found.</h1>
       </div>
     );
   }
 
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 py-20 px-6">
-
       <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg p-10">
 
         <Link
@@ -71,12 +71,11 @@ export default function BlogDetails() {
 
         <hr className="my-8" />
 
-        <div className="whitespace-pre-wrap leading-8 text-lg">
+        <div className="whitespace-pre-wrap leading-8 text-lg text-gray-700 dark:text-gray-300">
           {blog.content}
         </div>
 
       </div>
-
     </div>
   );
 }
