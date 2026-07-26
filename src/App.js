@@ -6,8 +6,8 @@ import "aos/dist/aos.css";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
-import TechStack from "./components/TechStack"; 
-import Skills from "./components/Skills";
+import TechStack from "./components/TechStack";
+import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Footer from "./components/Footer";
 import Certifications from "./components/Certification";
@@ -44,8 +44,8 @@ export default function App() {
           <TechStack />
         </section>
 
-        <section id="skills" className="py-12">
-          <Skills />
+        <section id="experience" className="py-12">
+          <Experience />
         </section>
 
         <section id="projects" className="py-12">
