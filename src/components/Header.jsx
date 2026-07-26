@@ -39,7 +39,6 @@ export default function Header() {
 
         {/* Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-
           {navLinks.map((item) => (
             <a
               key={item.name}
@@ -49,29 +48,29 @@ export default function Header() {
               {item.name}
             </a>
           ))}
-
         </nav>
 
         {/* Right Side */}
         <div className="flex items-center gap-4">
 
-          <a
-            href="/Shiven_Gupta_Resume.pdf"
-            download
+          {/* Print Resume */}
+          <button
+            onClick={() => window.print()}
             className="hidden md:block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-medium transition"
           >
-            Resume
-          </a>
+            📄 Download Resume
+          </button>
 
+          {/* Theme Toggle */}
           <button
             onClick={() => setDarkMode(!darkMode)}
             className="w-11 h-11 rounded-full bg-gray-200 dark:bg-gray-800 hover:scale-110 transition"
+            title="Toggle Theme"
           >
             {darkMode ? "☀️" : "🌙"}
           </button>
 
         </div>
-
       </div>
     </header>
   );
