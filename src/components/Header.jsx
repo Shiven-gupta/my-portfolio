@@ -32,18 +32,21 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
 
         {/* Logo */}
-        <a href="#hero" className="text-3xl font-extrabold tracking-wide">
+        <a
+          href="#hero"
+          className="text-3xl font-extrabold tracking-wide"
+        >
           <span className="text-blue-600">Shiven</span>{" "}
           <span className="text-gray-900 dark:text-white">Gupta</span>
         </a>
 
         {/* Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden lg:flex items-center space-x-8">
           {navLinks.map((item) => (
             <a
               key={item.name}
               href={item.href}
-              className="relative text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition duration-300 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-blue-500 after:transition-all hover:after:w-full"
+              className="relative font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition duration-300 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-blue-500 after:transition-all hover:after:w-full"
             >
               {item.name}
             </a>
@@ -53,18 +56,22 @@ export default function Header() {
         {/* Right Side */}
         <div className="flex items-center gap-4">
 
-          {/* Print Resume */}
+          {/* Resume Button */}
           <button
-            onClick={() => window.print()}
-            className="hidden md:block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-medium transition"
+            onClick={() =>
+              alert(
+                "Resume page coming soon! Until then, please use the Contact section or LinkedIn."
+              )
+            }
+            className="hidden md:block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-medium shadow-lg transition duration-300"
           >
-            📄 Download Resume
+            📄 Resume
           </button>
 
           {/* Theme Toggle */}
           <button
             onClick={() => setDarkMode(!darkMode)}
-            className="w-11 h-11 rounded-full bg-gray-200 dark:bg-gray-800 hover:scale-110 transition"
+            className="w-11 h-11 rounded-full bg-gray-200 dark:bg-gray-800 hover:scale-110 transition duration-300"
             title="Toggle Theme"
           >
             {darkMode ? "☀️" : "🌙"}
