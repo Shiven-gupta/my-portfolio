@@ -27,9 +27,9 @@ export default function Hero() {
           Hi, I'm <span className="text-blue-500">Shiven Gupta</span>
         </h2>
         <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-          I’m a final-year BCA student with a passion for AI and Python-powered solutions.
-          I build intelligent systems using machine learning, deep learning, and data analytics.
-          From smart IoT to chatbot apps, I love solving problems with code that thinks.
+          I'm a Network & Server Infrastructure Engineer at Horiba India specializing in enterprise networking, virtualization, firewall administration, and server infrastructure.
+          I have hands-on experience with FortiGate Firewalls, SD-WAN, Cisco Switching, VMware ESXi, Windows Server, HPE Storage, and enterprise backup solutions. 
+          Alongside my professional career, I'm pursuing an MCA in Artificial Intelligence & Machine Learning.
         </p>
         <a
           href="#projects"
