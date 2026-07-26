@@ -1,42 +1,90 @@
-import profileImg from '../assets/profile.png';
+import profileImg from "../assets/profile.png";
 
 export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-10 bg-white dark:bg-gray-900 text-gray-900 dark:text-white px-6 py-16"
+      className="min-h-screen flex flex-col-reverse md:flex-row items-center justify-center gap-16 bg-white dark:bg-gray-900 text-gray-900 dark:text-white px-6 py-16"
     >
       {/* Left - Image */}
-      <div className="relative w-64 h-64 flex items-center justify-center md:w-80 md:h-80">
-  {/* Background Circle */}
-  <div className="w-64 h-64 md:w-80 md:h-80 bg-gray-300 dark:bg-gray-700 rounded-full shadow-xl" />
+      <div className="relative flex items-center justify-center">
+        {/* Background Circle */}
+        <div className="w-72 h-72 md:w-96 md:h-96 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 opacity-20 blur-2xl absolute"></div>
 
-  {/* Popping Image */}
-  <img
-    src={profileImg}
-    alt="Shiven Gupta"
-    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-3/4 scale-[1.3] w-80 h-80 object-cover z-10"
-  />
-</div>
+        <div className="w-64 h-64 md:w-80 md:h-80 bg-gray-200 dark:bg-gray-800 rounded-full shadow-2xl flex items-center justify-center overflow-hidden relative">
+          <img
+            src={profileImg}
+            alt="Shiven Gupta"
+            className="w-72 md:w-96 object-cover scale-110"
+          />
+        </div>
+      </div>
 
-
-
-      {/* Right - Intro Text */}
-      <div className="max-w-xl text-center md:text-left">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4">
-          Hi, I'm <span className="text-blue-500">Shiven Gupta</span>
-        </h2>
-        <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-          I'm a Network & Server Infrastructure Engineer at Horiba India specializing in enterprise networking, virtualization, firewall administration, and server infrastructure.
-          I have hands-on experience with FortiGate Firewalls, SD-WAN, Cisco Switching, VMware ESXi, Windows Server, HPE Storage, and enterprise backup solutions. 
-          Alongside my professional career, I'm pursuing an MCA in Artificial Intelligence & Machine Learning.
+      {/* Right - Hero Content */}
+      <div className="max-w-2xl text-center md:text-left">
+        <p className="text-blue-500 font-semibold uppercase tracking-widest mb-2">
+          Welcome to my Portfolio
         </p>
-        <a
-          href="#projects"
-          className="inline-block px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-xl transition"
-        >
-          View My Work
-        </a>
+
+        <h1 className="text-5xl md:text-6xl font-extrabold leading-tight">
+          Hi, I'm <span className="text-blue-500">Shiven Gupta</span>
+        </h1>
+
+        <h2 className="text-2xl md:text-3xl font-semibold text-gray-700 dark:text-gray-300 mt-4">
+          Network & Server Infrastructure Engineer
+        </h2>
+
+        <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
+          Designing secure enterprise infrastructure using
+          <span className="font-semibold text-blue-500">
+            {" "}
+            Fortinet, Cisco, VMware, Windows Server, SD-WAN,{" "}
+          </span>
+          and enterprise networking technologies.
+        </p>
+
+        <p className="mt-4 text-gray-500 dark:text-gray-400">
+          Currently working at <strong>HORIBA India</strong> while pursuing an
+          <strong> MCA in Artificial Intelligence & Machine Learning.</strong>
+        </p>
+
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 mt-8 justify-center md:justify-start">
+          <a
+            href="#projects"
+            className="px-8 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold transition duration-300 shadow-lg"
+          >
+            View Projects
+          </a>
+
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-3 rounded-xl border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white transition duration-300"
+          >
+            Download Resume
+          </a>
+        </div>
+
+        {/* Tech Stack */}
+        <div className="flex flex-wrap gap-3 mt-10 justify-center md:justify-start">
+          {[
+            "Fortinet",
+            "Cisco",
+            "VMware",
+            "Windows Server",
+            "SD-WAN",
+            "Python",
+          ].map((skill) => (
+            <span
+              key={skill}
+              className="px-4 py-2 rounded-full bg-gray-100 dark:bg-gray-800 text-sm font-medium shadow"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );
