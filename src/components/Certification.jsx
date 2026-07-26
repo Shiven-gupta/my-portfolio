@@ -35,10 +35,8 @@ export default function Certifications() {
   const learning = [
     "Microsoft 365 Administration",
     "Microsoft Azure",
-    "Cisco CCNA",
-    "Fortinet NSE",
-    "Docker",
-    "Kubernetes",
+    "SAP Basis"
+    "Salesforce"
   ];
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
